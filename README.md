@@ -10,8 +10,6 @@ Built in Python 3.8.
 * Depth Limited Search (BFS) 
 * Iterative Deepening (BFS) 
 
-A* and Best First chose the state with the smallest heuristic value.
-
 ### Running the program
 
 The program takes 3 command line arguments:
