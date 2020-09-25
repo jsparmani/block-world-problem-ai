@@ -1,8 +1,3 @@
-"""
-Created on Apr 4, 2019
-
-@author: Apostolis Tselios
-"""
 import os
 import utils
 import time
@@ -13,6 +8,7 @@ from tree_node import TreeNode
 def search(queue, method, initial, goal):
     """Searches the tree for a solution based on the search algorithm."""
     if method == 'itdeep':
+        """This is for iterative deepening"""
         for upperlimit in range(0, 200):
             root = TreeNode(initial, None, None, 0, 0, 0)
             depth = 0
@@ -49,7 +45,7 @@ def search(queue, method, initial, goal):
 
         return None
     else:
-        
+        """This is for depth, breadth and depth limitied search"""
         root = TreeNode(initial, None, None, 0, 0, 0)
         depth = 0
         limit = 1

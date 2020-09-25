@@ -20,19 +20,8 @@ class TreeNode(object):
         moves = self.find_possible_moves()
         for state in moves:
             g = self.g + 1
-            if method == 'astar':
-                h = self.heuristic(state[0], goal)
-                f = h + g
-                self.children.append(
-                    TreeNode(state[0], self, state[1], h=h, g=g, f=f))
-            elif method == 'best':
-                h = self.heuristic(state[0], goal)
-                self.children.append(
-                    TreeNode(state[0], self, state[1], h=h, g=g, f=h))
-            else:
-                # print(state[0])
-                self.children.append(
-                    TreeNode(state[0], self, state[1], h=0, g=g, f=0))
+            self.children.append(
+                TreeNode(state[0], self, state[1], h=0, g=g, f=0))
 
     def find_possible_moves(self):
         """Finds and returns the possible moves in the current state."""
@@ -110,25 +99,6 @@ class TreeNode(object):
         move = (block, below_block, block_)
 
         return copy_blocks, move
-
-    def heuristic(self, state, goal):
-        """Score the nodes checking every block if it's in the correct position and if
-        the block under it is in the correct position. (if it has a block under it.)"""
-
-        score = 0
-        for block in state:
-            if not state[block] == goal[block]:
-                # If the block its not in its goal position add 1 to the score.
-                score += 1
-
-            if not state[block]['ONTABLE']:
-                # If the block is not on table check if the block that is on is in the correct position.
-                on = state[block]['ON']
-                if state[on] != goal[on]:
-                    # If its not add 1 to the score.
-                    score += 1
-
-        return score
 
     def print_state(self):
         """Prints the current state."""
