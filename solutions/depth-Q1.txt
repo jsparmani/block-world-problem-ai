@@ -1,0 +1,5 @@
+1. move ('C', 'B', 'A')
+2. move ('C', 'A', 'table')
+3. move ('B', 'table', 'C')
+4. move ('B', 'C', 'A')
+5. move ('C', 'table', 'B')
